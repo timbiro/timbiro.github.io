@@ -1,124 +1,352 @@
 <!doctype html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Pira-Esconde no Mangue?</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="dist/js/chocolat.js"></script>
-        <link rel="stylesheet" href="dist/css/chocolat.css" type="text/css" media="screen" >
-        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-        <meta name="title" content="Pira-Esconde no Mangue?" />
-        <meta name="description" content="Pira-Esconde no Mangue?" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://timbiro.github.io" />
-        <meta property="og:title" content="Pira-Esconde no Mangue?" />
-        <meta property="og:description" content="Pira-Esconde no Mangue?" />
-        <meta property="og:image" content="https://raw.githubusercontent.com/timbiro/timbiro.github.io/main/docs/assets/01.png" />
-        <meta property="twitter:card" content="https://raw.githubusercontent.com/timbiro/timbiro.github.io/main/docs/assets/01.png" />
-        <meta property="twitter:url" content="https://timbiro.github.io" />
-        <meta property="twitter:title" content="Pira-Esconde no Mangue?" />
-        <meta property="twitter:description" content="Pira-Esconde no Mangue?" />
-        <meta property="twitter:image" content="https://raw.githubusercontent.com/timbiro/timbiro.github.io/master/docs/assets/01.png" />
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pira-Esconde no Mangue?</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/7d94912b47.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" crossorigin="anonymous"></script>
+    <link href="turnjs/turn.min.css" rel="stylesheet">
+    <meta name="title" content="Pira-Esconde no Mangue?" />
+    <meta name="description" content="Pira-Esconde no Mangue?" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://timbiro.github.io" />
+    <meta property="og:title" content="Pira-Esconde no Mangue?" />
+    <meta property="og:description" content="Pira-Esconde no Mangue?" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/timbiro/timbiro.github.io/main/docs/assets/01.png" />
+    <meta property="twitter:card" content="https://raw.githubusercontent.com/timbiro/timbiro.github.io/main/docs/assets/01.png" />
+    <meta property="twitter:url" content="https://timbiro.github.io" />
+    <meta property="twitter:title" content="Pira-Esconde no Mangue?" />
+    <meta property="twitter:description" content="Pira-Esconde no Mangue?" />
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/timbiro/timbiro.github.io/master/docs/assets/01.png" />
     <style>
-        body, html {
+        body {
             margin: 0;
             padding: 0;
-            overflow-y: auto;
             overflow-x: hidden;
-        }
-         @font-face {
-            font-family: 'MilhoCozido';
-            src: url('fonts/Milho_Cozido_38.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'Barriecito';
-            src: url('fonts/Barriecito-Regular.ttf') format('truetype');
-        }
-        @font-face {
-            font-family: 'Quicksand';
-            src: url('fonts/Quicksand-VariableFont_wght.ttf') format('truetype');
-        }
-        .Slide1 {
-            position: relative;
-            overflow: hidden;
-            height: 100vh;
-        }
-        .Slide2 {
-            position: relative;
-            overflow: hidden;
-            height: 200vh;
-        }
-        .Slide1 .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 200%;
             height: 100%;
             background-image: url('assets/bg.png');
             background-size: cover;
-            background-repeat: repeat-x;
-            animation: scrollBackground 60s linear infinite;
+            background-repeat: no-repeat;
+            background-attachment: scroll; /* Remove fixed para permitir rolagem */
         }
-        .Slide2 .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 200%;
-            height: 100%;
-            background-image: url('assets/_bg.png');
-            background-size: cover;
-            background-repeat: repeat-x;
-            animation: scrollBackground 60s linear infinite;
-        }
-        @keyframes scrollBackground {
-            0% {
-                transform: translateX(0);
-            }
-            50% {
-                transform: translateX(-50%);
-            }
-            100% {
-                transform: translateX(0);
-            }
-        }
-        .Autora {
+        @font-face {
             font-family: 'MilhoCozido';
-            color: #202020;
-            margin-top: 10%;
+            src: url('fonts/Milho_Cozido_38.ttf') format('truetype');
         }
-        .content {
+        .Slide1, .Slide2, .Slide3, .Slide4 {
             position: relative;
-            z-index: 1;
+            overflow: hidden;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .TitleMilho {
+            font-family: MilhoCozido;
+            color: #202020;
+            margin-top: 1%;
+        }
+        a {
+            text-decoration: none;
+            color: #202020;
+        }
+        a:hover {
+            text-decoration: none;
+            color: #F28705;
+        }
+        .imgLink:hover {
+            cursor: pointer;
+            transform: scale(1.25);
+            transition: transform 0.5s ease;
+        }
+        .imgLink {
+            transition: transform 0.5s ease;
+        }
+        .fa-2x, .fa-3x, .fa-1x {vertical-align: middle;}
+        #pdf-viewer {
+            width: 800px;
+            height: 80vh;
+            margin: auto;
+        }
+        .page {
+            width: 100%;
+            height: 100%;
+        }
+        .flipbook .page {
+            background: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
     </style>
-    
-    <body class="bg-light-subtle">
-        <div class="Slide1 text-center">
-            <div class="background"></div>
-            <div class="content">
-                <img class="img-fluid" src="assets/01.png" data-aos="zoom-in-up" data-aos-duration="2500" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-anchor-placement="top-center">
-                <div class="h1 Autora display-1" data-aos="fade-down" data-aos-duration="4500" data-aos-offset="600" data-aos-easing="ease-out-cubic">Por Alexya Queiroz</div>
+</head>
+
+<body class="bg-light container-fluid">
+
+    <div class="Slide1 text-center">
+        <img class="img-fluid mx-auto" src="assets/01.png" data-aos="zoom-in-up" data-aos-duration="1500" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-anchor-placement="top-center">
+        <div class="TitleMilho display-6">Por Alexya Queiroz</div>
+
+        <div class="row row-cols-1 row-cols-md-3 mt-5 mb-5">
+            <div class="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Cartilha do Pira-Esconde no Mangue?">
+                <img class="img-fluid imgLink" src="assets/cartilha.png" alt="Cartilha">
+            </div>
+            <div class="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Fotos do Projeto">
+                <img class="img-fluid imgLink" src="assets/fotos.png" alt="Fotos">
+            </div>
+            <div class="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Equipe do Pira-Esconde no Mangue?">
+                <img class="img-fluid imgLink" src="assets/equipe.png" alt="Equipe">
             </div>
         </div>
-        <div class="Slide2 text-center">
-            <div class="background"></div>
-            <div class="content">
-                <div class="h1 Autora display-1" data-aos="fade-down" data-aos-duration="4500" data-aos-offset="600" data-aos-easing="ease-out-cubic">Em Desenvolvimento</div>
-                <img class="img-fluid" src="assets/03.png" data-aos="zoom-in-up" data-aos-duration="2500" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-anchor-placement="top-center">
+        <!--<div class="TitleMilho display-2 mt-5">Clique em uma das imagens para começar!</div>-->
+
+    </div>
+
+    <hr>
+
+    <div class="Slide2">
+        <h1 class="text-center mb-1 TitleMilho display-1">Cartilha</h1>
+        <div id="pdf-viewer" class="flipbook"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+        <script src="turnjs/turn.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Definindo o workerSrc para PDF.js
+                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js';
+
+                const url = 'cartilha.pdf'; // Caminho para o seu arquivo PDF
+                const pdfViewer = document.getElementById('pdf-viewer');
+
+                const renderPage = (page, canvasContainer) => {
+                    let viewport = page.getViewport({ scale: 1.5 });
+                    let canvas = document.createElement('canvas');
+                    let context = canvas.getContext('2d');
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+
+                    canvasContainer.appendChild(canvas);
+
+                    let renderContext = {
+                        canvasContext: context,
+                        viewport: viewport
+                    };
+
+                    page.render(renderContext).promise.then(() => {
+                        console.log('Page rendered');
+                    });
+                };
+
+                const loadPDF = async () => {
+                    const pdf = await pdfjsLib.getDocument(url).promise;
+                    const totalPageCount = pdf.numPages;
+
+                    for (let pageNum = 1; pageNum <= totalPageCount; pageNum++) {
+                        const page = await pdf.getPage(pageNum);
+                        const pageContainer = document.createElement('div');
+                        pageContainer.className = 'page';
+                        pdfViewer.appendChild(pageContainer);
+                        renderPage(page, pageContainer);
+                    }
+
+                    $('.flipbook').turn({
+                        width: 800,
+                        height: 600,
+                        autoCenter: true
+                    });
+                };
+
+                loadPDF();
+            });
+        </script>
+    </div>
+
+    <hr>
+
+    <div class="Slide3">
+        <h1 class="text-center mb-1 TitleMilho display-1">Jornal do Mangue</h1>
+        <div class="row row-cols-3" id="jornal-container">
+            
+            <div class="col mb-5">
+                <div class="card">
+                    <img src="assets/01.png" class="card-img-top" alt="...">
+                    <div class="card-body" style="font-family: MilhoCozido;">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
             </div>
+
+            <div class="col mb-5">
+                <div class="card">
+                    <img src="assets/01.png" class="card-img-top" alt="...">
+                    <div class="card-body" style="font-family: MilhoCozido;">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col mb-5">
+                <div class="card">
+                    <img src="assets/01.png" class="card-img-top" alt="...">
+                    <div class="card-body" style="font-family: MilhoCozido;">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col mb-5">
+                <div class="card">
+                    <img src="assets/01.png" class="card-img-top" alt="...">
+                    <div class="card-body" style="font-family: MilhoCozido;">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col mb-5">
+                <div class="card">
+                    <img src="assets/01.png" class="card-img-top" alt="...">
+                    <div class="card-body" style="font-family: MilhoCozido;">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col mb-5">
+                <div class="card">
+                    <img src="assets/01.png" class="card-img-top" alt="...">
+                    <div class="card-body" style="font-family: MilhoCozido;">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    </div>
+
+    <hr>
+
+
+    <div class="Slide4">
+        <h1 class="text-center mb-1 TitleMilho display-1">Equipe</h1>
+        <div class="row row-cols-1 row-cols-md-2" id="team-container"></div>
         <script>
-            AOS.init();
+            $(document).ready(function(){
+                const teamData = [
+                    {
+                        name: "Alexya Queiroz",
+                        title: "Autora, Bióloga",
+                        description: "Artista visual e bióloga apaixonada pela biodiversidade marinha e costeira. Sempre desejou unir sua pesquisa científica com sua arte, com o objetivo de ensinar e inspirar outras pessoas.",
+                        imgSrc: "assets/Team/Alexya.png",
+                        instagram: "https://www.instagram.com/xyaqueiroz",
+                        email: "alexyaqueiroz@hotmail.com"
+                    },
+                    {
+                        name: "Mhorgana",
+                        title: "Designer",
+                        description: "Navegadora das telas, entre o real e o onirico, seu trabalho vai do cinema, produção cultural ao videomapping. Comunica questões importantes sobre a sociedade e o meio ambiente, seu objetivo é criar narrativas que inspirem mudanças.",
+                        imgSrc: "assets/Team/Mhorgana.png",
+                        email: "mogmhorgana@gmail.com",
+                        instagram: "https://www.instagram.com/mhorgana_",
+                    },
+                    {
+                        name: "Felipe Furtado",
+                        title: "Artista Visual",
+                        description: "Usa seu trabalho artístico para refletir sobre questões identitárias, através do encontro entre pintura e Histórias em quadrinhos.",
+                        imgSrc: "assets/Team/Felipe.png",
+                        instagram: "https://www.instagram.com/luizfelipe_ftd",
+                        email: "lfelipe2123@hotmail.com"
+                    },
+                    {
+                        name: "Aila Carvalho",
+                        title: "Pedagoga",
+                        description: "Pedagoga, atuante como professora na Educação ambiental. Através da educação busca contribuir no cuidado com a natureza e reflexões sociais para melhoria do bem comum.",
+                        imgSrc: "assets/Team/Aila.png",
+                        email: "ailapedagogiaa@gmail.com"
+                    },
+                    {
+                        name: "Yan Silva",
+                        title: "Artista Visual e Pedagogo",
+                        description: "Artista versátil que cria ilustrações, telas e murais em espaços públicos e instituições. Dedica-se a integrar arte e educação, promovendo a valorização das expressões artísticas no dia a dia.",
+                        imgSrc: "assets/Team/Yan.png",
+                        instagram: "https://www.instagram.com/yansilva_97",
+                        email: "yansilva17.1997@gmail.com"
+                    },
+                    {
+                        name: "Ada Guimarães e Igor Quadros",
+                        title: "Produtora Tucumã",
+                        description: "Somos uma produtora fundada por Ada Guimarães e Igor Quadros, comprometida em enriquecer e promover o cenário cultural do interior da Amazônia. Nosso objetivo é impulsionar o desenvolvimento de projetos artísticos que valorizem a rica diversidade cultural da nossa região. Atuamos em diversas áreas artísticas, incluindo fotografia, audiovisual e ilustração, sempre inspirados pela identidade única da Amazônia.",
+                        imgSrc: "assets/Team/Tucumã.png",
+                        instagram: "https://www.instagram.com/produtoratucuma",
+                        email: "produtoratucumapa@gmail.com"
+                    },
+                    {
+                        name: "Luan Rabelo",
+                        title: "Programador e Naturalista",
+                        description: "Programador e web designer, busca  conectar o público à ciência e ao meio ambiente digitalmente, incentivando a ciência acessível a todos.",
+                        imgSrc: "assets/Team/Luan.png",
+                        instagram: "https://www.instagram.com/lprabelo",
+                        email: "luanrabelo@outlook.com"
+                    },
+                ];
+                const teamContainer = document.getElementById('team-container');
+        
+                teamData.forEach(member => {
+                    const col = document.createElement('div');
+                    col.className = 'col-12 col-md-6 mb-4 d-flex';
+                    col.innerHTML = `
+                        <div class="card w-100">
+                            <div class="row no-gutters flex-column flex-md-row">
+                                <div class="col-12 col-md-4">
+                                    <img src="${member.imgSrc}" class="img-fluid rounded-start imgCard" alt="...">
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <div class="card-body">
+                                        <div class="card-title h1" style="font-family: MilhoCozido;">${member.name}</div>
+                                        <div class="card-title h4" style="font-family: MilhoCozido;">${member.title}</div>
+                                        <p class="card-text h5" style="text-align: justify; font-family: MilhoCozido;">${member.description}</p>
+                                        <div class="row row-col-1">
+                                            ${member.instagram ? `
+                                            <div class="col-12">
+                                                <a class="h2" href="${member.instagram}" target="_blank" style="font-family: MilhoCozido;">
+                                                    <i class="fab fa-1x fa-instagram"></i>&nbsp;@${member.instagram.split('https://www.instagram.com/')[1]}
+                                                </a>
+                                            </div>
+                                            ` : ''}
+                                            <div class="col-12">
+                                                <a class="h2" href="mailto:${member.email}" style="font-family: MilhoCozido;">
+                                                    <i class="fa-solid fa-1x fa-envelope"></i>&nbsp;${member.email}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    teamContainer.appendChild(col);
+                });
+            });
         </script>
-    </body>
+    </div>
+    <div style="width: 100%;" class="bg-white text-center">
+        <small class="text-center text-black">Page was created by Luan Rabelo.</small>
+    </div>
+    
+</body>
+
 </html>
