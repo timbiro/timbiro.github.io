@@ -132,7 +132,7 @@
                 const pdfViewer = document.getElementById('pdf-viewer');
 
                 const renderPage = (page, canvasContainer) => {
-                    let viewport = page.getViewport({ scale: 1.5 });
+                    let viewport = page.getViewport({ scale: 1 });
                     let canvas = document.createElement('canvas');
                     let context = canvas.getContext('2d');
                     canvas.height = viewport.height;
