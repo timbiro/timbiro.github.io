@@ -36,7 +36,11 @@
             font-family: 'MilhoCozido';
             src: url('fonts/Milho_Cozido_38.ttf') format('truetype');
         }
-        .Slide1, .Slide2, .Slide3, .Slide4 {
+        @font-face {
+            font-family: 'Quicksand';
+            src: url('fonts/Quicksand-VariableFont_wght.ttf');
+        }
+        .Slide1, .Slide2, .Slide3, .Slide4, .Slide5 {
             position: relative;
             overflow: hidden;
             height: auto;
@@ -52,7 +56,7 @@
         }
         a {
             text-decoration: none;
-            color: #202020;
+            color: #070D0C;
         }
         a:hover {
             text-decoration: none;
@@ -67,9 +71,10 @@
             transition: transform 0.5s ease;
         }
         .fa-2x, .fa-3x, .fa-1x {vertical-align: middle;}
+        
         #pdf-viewer {
-            width: 800px;
-            height: 80vh;
+            width: 95%;
+            height: 95%;
             margin: auto;
         }
         .page {
@@ -107,6 +112,13 @@
     <hr>
 
     <div class="Slide2">
+        <h1 class="text-center mb-1 TitleMilho display-1">Audio Descrição</h1>
+        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3" id="audio-container">
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        </div>
+    </div>
+
+    <div class="Slide3">
         <h1 class="text-center mb-1 TitleMilho display-1">Cartilha</h1>
         <div id="pdf-viewer" class="flipbook"></div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
@@ -164,72 +176,72 @@
 
     <hr>
 
-    <div class="Slide3">
+    <div class="Slide4">
         <h1 class="text-center mb-1 TitleMilho display-1">Jornal do Mangue</h1>
-        <div class="row row-cols-3" id="jornal-container">
+        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3" id="jornal-container">
             
-            <div class="col mb-5">
+            <div class="col mb-5 g-5">
                 <div class="card">
                     <img src="assets/01.png" class="card-img-top" alt="...">
-                    <div class="card-body" style="font-family: MilhoCozido;">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-family: MilhoCozido;">Card title</h5>
+                        <p class="card-text" style="font-family: Quicksand;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary" style="font-family: Quicksand;">Go somewhere</a>
                     </div>
                 </div>
             </div>
 
-            <div class="col mb-5">
+            <div class="col mb-5 g-5">
                 <div class="card">
                     <img src="assets/01.png" class="card-img-top" alt="...">
-                    <div class="card-body" style="font-family: MilhoCozido;">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="card-body" style="font-family: Quicksand;">
+                        <h5 class="card-title" style="font-family: MilhoCozido;">Card title</h5>
+                        <p class="card-text" style="font-family: Quicksand;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary" style="font-family: Quicksand;">Go somewhere</a>
                     </div>
                 </div>
             </div>
 
-            <div class="col mb-5">
+            <div class="col mb-5 g-5">
                 <div class="card">
                     <img src="assets/01.png" class="card-img-top" alt="...">
-                    <div class="card-body" style="font-family: MilhoCozido;">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="card-body" style="font-family: Quicksand;">
+                        <h5 class="card-title" style="font-family: MilhoCozido;">Card title</h5>
+                        <p class="card-text" style="font-family: Quicksand;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary" style="font-family: Quicksand;">Go somewhere</a>
                     </div>
                 </div>
             </div>
 
-            <div class="col mb-5">
+            <div class="col mb-5 g-5">
                 <div class="card">
                     <img src="assets/01.png" class="card-img-top" alt="...">
-                    <div class="card-body" style="font-family: MilhoCozido;">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="card-body" style="font-family: Quicksand;">
+                        <h5 class="card-title" style="font-family: MilhoCozido;">Card title</h5>
+                        <p class="card-text" style="font-family: Quicksand;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary" style="font-family: Quicksand;">Go somewhere</a>
                     </div>
                 </div>
             </div>
 
-            <div class="col mb-5">
+            <div class="col mb-5 g-5">
                 <div class="card">
                     <img src="assets/01.png" class="card-img-top" alt="...">
-                    <div class="card-body" style="font-family: MilhoCozido;">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="card-body" style="font-family: Quicksand;">
+                        <h5 class="card-title" style="font-family: MilhoCozido;">Card title</h5>
+                        <p class="card-text" style="font-family: Quicksand;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary" style="font-family: Quicksand;">Go somewhere</a>
                     </div>
                 </div>
             </div>
 
-            <div class="col mb-5">
+            <div class="col mb-5 g-5">
                 <div class="card">
                     <img src="assets/01.png" class="card-img-top" alt="...">
-                    <div class="card-body" style="font-family: MilhoCozido;">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="card-body" style="font-family: Quicksand;">
+                        <h5 class="card-title" style="font-family: MilhoCozido;">Card title</h5>
+                        <p class="card-text" style="font-family: Quicksand;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary" style="font-family: Quicksand;">Go somewhere</a>
                     </div>
                 </div>
             </div>
@@ -241,7 +253,7 @@
     <hr>
 
 
-    <div class="Slide4">
+    <div class="Slide5">
         <h1 class="text-center mb-1 TitleMilho display-1">Equipe</h1>
         <div class="row row-cols-1 row-cols-md-2" id="team-container"></div>
         <script>
@@ -316,20 +328,20 @@
                                 </div>
                                 <div class="col-12 col-md-8">
                                     <div class="card-body">
-                                        <div class="card-title h1" style="font-family: MilhoCozido;">${member.name}</div>
-                                        <div class="card-title h4" style="font-family: MilhoCozido;">${member.title}</div>
-                                        <p class="card-text h5" style="text-align: justify; font-family: MilhoCozido;">${member.description}</p>
+                                        <div class="card-title h1" style="font-family: MilhoCozido; color: #594B02">${member.name}</div>
+                                        <div class="card-title h4" style="font-family: Quicksand; color: #070D0C">${member.title}</div>
+                                        <p class="card-text h4" style="text-align: justify; font-family: Quicksand; color: #070D0C">${member.description}</p>
                                         <div class="row row-col-1">
                                             ${member.instagram ? `
                                             <div class="col-12">
-                                                <a class="h2" href="${member.instagram}" target="_blank" style="font-family: MilhoCozido;">
+                                                <a class="h4" href="${member.instagram}" target="_blank" style="font-family: Quicksand;">
                                                     <i class="fab fa-1x fa-instagram"></i>&nbsp;@${member.instagram.split('https://www.instagram.com/')[1]}
                                                 </a>
                                             </div>
                                             ` : ''}
                                             <div class="col-12">
-                                                <a class="h2" href="mailto:${member.email}" style="font-family: MilhoCozido;">
-                                                    <i class="fa-solid fa-1x fa-envelope"></i>&nbsp;${member.email}
+                                                <a class="h4" href="mailto:${member.email}" style="font-family: Quicksand;">
+                                                    <i class="fa-regular fa-1x fa-envelope"></i></i>&nbsp;${member.email}
                                                 </a>
                                             </div>
                                         </div>
