@@ -73,19 +73,23 @@
         .fa-2x, .fa-3x, .fa-1x {vertical-align: middle;}
         
         #pdf-viewer {
-            width: 100%;
+            width: 100vw;
             height: 100vh;
             margin: auto;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .page {
             display: flex;
             justify-content: center;
             align-items: center;
+            margin: 0;
         }
         .flipbook .page {
             background: #EEEEEE;
-            box-shadow: 0 5px 5px #F28705;
+            box-shadow: none;
         }
         canvas {
             max-width: 100%;
@@ -161,7 +165,8 @@
                 const loadPDF = async () => {
                     const pdf = await pdfjsLib.getDocument(url).promise;
                     const totalPageCount = pdf.numPages;
-                    const scale = window.innerWidth <= 768 ? 1.5 : 2; // Escala ajustada para melhor visualização
+                    const isMobile = window.innerWidth <= 768;
+                    const scale = isMobile ? 1.5 : 2; // Ajuste a escala para melhor visualização
     
                     for (let pageNum = 1; pageNum <= totalPageCount; pageNum++) {
                         const page = await pdf.getPage(pageNum);
@@ -171,21 +176,20 @@
                         renderPage(page, pageContainer, scale);
                     }
     
-                    const isMobile = window.innerWidth <= 768;
-                    const flipbookWidth = window.innerWidth * 0.9; // 90% da largura da tela
-                    const flipbookHeight = window.innerHeight * 0.8; // 80% da altura da tela
+                    const flipbookWidth = isMobile ? window.innerWidth : window.innerWidth * 0.9;
+                    const flipbookHeight = isMobile ? window.innerHeight : window.innerHeight * 0.9;
     
                     $('.flipbook').turn({
                         width: flipbookWidth,
                         height: flipbookHeight,
                         autoCenter: true,
-                        display: isMobile ? 'single' : 'double' // Modo de exibição baseado no dispositivo
+                        display: isMobile ? 'single' : 'double'
                     });
     
                     window.addEventListener('resize', () => {
                         const newIsMobile = window.innerWidth <= 768;
-                        const newFlipbookWidth = window.innerWidth * 0.9;
-                        const newFlipbookHeight = window.innerHeight * 0.8;
+                        const newFlipbookWidth = newIsMobile ? window.innerWidth : window.innerWidth * 0.9;
+                        const newFlipbookHeight = newIsMobile ? window.innerHeight : window.innerHeight * 0.9;
     
                         $('.flipbook').turn('size', newFlipbookWidth, newFlipbookHeight);
                         $('.flipbook').turn('display', newIsMobile ? 'single' : 'double');
