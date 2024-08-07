@@ -73,8 +73,8 @@
         .fa-2x, .fa-3x, .fa-1x {vertical-align: middle;}
         
         #pdf-viewer {
-            width: 100vw;
-            height: 100vh;
+            width: auto;
+            height: auto;
             margin: auto;
             overflow: hidden;
             display: flex;
@@ -190,8 +190,8 @@
     
                     window.addEventListener('resize', () => {
                         const newIsMobile = window.innerWidth <= 768;
-                        const newFlipbookWidth = newIsMobile ? window.innerWidth : window.innerWidth * 0.9;
-                        const newFlipbookHeight = newIsMobile ? window.innerHeight : window.innerHeight * 0.9;
+                        const newFlipbookWidth = newIsMobile ? window.innerWidth : window.innerWidth * 0.5;
+                        const newFlipbookHeight = newIsMobile ? window.innerHeight : window.innerHeight * 0.5;
     
                         $('.flipbook').turn('size', newFlipbookWidth, newFlipbookHeight);
                         $('.flipbook').turn('display', newIsMobile ? 'single' : 'double');
