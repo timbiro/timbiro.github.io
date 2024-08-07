@@ -74,7 +74,7 @@
         
         #pdf-viewer {
             width: 100vw;
-            height: 100vh;
+            height: auto;
             margin: auto;
             overflow: hidden;
             display: flex;
@@ -155,7 +155,7 @@
                     const pdf = await pdfjsLib.getDocument(url).promise;
                     const totalPageCount = pdf.numPages;
                     const isMobile = window.innerWidth <= 768;
-                    const scale = isMobile ? 1.5 : 2; // Ajuste a escala para melhor visualização
+                    const scale = isMobile ? 1.45 : 3; // Ajuste a escala para melhor visualização
     
                     for (let pageNum = 1; pageNum <= totalPageCount; pageNum++) {
                         const page = await pdf.getPage(pageNum);
@@ -191,10 +191,10 @@
                 loadPDF();
             });
         </script>
-        <div class="text-center mt-2">
+        <div class="text-center mt-5">
             <a href="assets/ebook.pdf" download="ebook.pdf" class="display-2" style="font-family: MilhoCozido;">Clique aqui para Baixar a Cartilha</a>
         </div>
-        <div class="text-center mt-2">
+        <div class="text-center mt-5">
             <a href="assets/audio.mp3" download="audio.mp3" class="display-2" style="font-family: MilhoCozido;">Clique aqui para Baixar a Audio Descrição</a>
         </div>
     </div>
