@@ -74,7 +74,7 @@
         
         #pdf-viewer {
             width: 100vw;
-            height: auto;
+            height: 100vh;
             margin: auto;
             overflow: hidden;
             display: flex;
@@ -88,7 +88,7 @@
             margin: 0;
         }
         .flipbook .page {
-            background: #FFFFFF; /* Remover fundo cinza */
+            background: transparent; /* Remover fundo cinza */
             box-shadow: none; /* Remover sombra */
         }
         canvas {
@@ -155,7 +155,7 @@
                     const pdf = await pdfjsLib.getDocument(url).promise;
                     const totalPageCount = pdf.numPages;
                     const isMobile = window.innerWidth <= 768;
-                    const scale = isMobile ? 1.45 : 3; // Ajuste a escala para melhor visualização
+                    const scale = isMobile ? 1.45 : 2.5; // Ajuste a escala para melhor visualização
     
                     for (let pageNum = 1; pageNum <= totalPageCount; pageNum++) {
                         const page = await pdf.getPage(pageNum);
@@ -175,7 +175,15 @@
                         display: isMobile ? 'single' : 'double',
                         acceleration: true,
                         gradients: true,
-                        duration: 1000 // Duração da animação em milissegundos
+                        duration: 1000, // Duração da animação em milissegundos
+                        when: {
+                            turning: function(event, page, view) {
+                                $('.flipbook').turn('resize');
+                            },
+                            turned: function(event, page, view) {
+                                $('.flipbook').turn('resize');
+                            }
+                        }
                     });
     
                     window.addEventListener('resize', () => {
@@ -185,6 +193,7 @@
     
                         $('.flipbook').turn('size', newFlipbookWidth, newFlipbookHeight);
                         $('.flipbook').turn('display', newIsMobile ? 'single' : 'double');
+                        $('.flipbook').turn('resize');
                     });
                 };
     
@@ -330,13 +339,13 @@
                                         <div class="row row-col-1">
                                             ${member.instagram ? `
                                             <div class="col-12">
-                                                <a class="h4" href="${member.instagram}" target="_blank" style="font-family: Quicksand;">
+                                                <a class="h5" href="${member.instagram}" target="_blank" style="font-family: Quicksand;">
                                                     <i class="fab fa-1x fa-instagram"></i>&nbsp;@${member.instagram.split('https://www.instagram.com/')[1]}
                                                 </a>
                                             </div>
                                             ` : ''}
                                             <div class="col-12">
-                                                <a class="h4" href="mailto:${member.email}" style="font-family: Quicksand;">
+                                                <a class="h5" href="mailto:${member.email}" style="font-family: Quicksand;">
                                                     <i class="fa-regular fa-1x fa-envelope"></i>&nbsp;${member.email}
                                                 </a>
                                             </div>
