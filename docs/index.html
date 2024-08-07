@@ -88,8 +88,8 @@
             margin: 0;
         }
         .flipbook .page {
-            background: #EEEEEE00;
-            box-shadow: none;
+            background: #FFFFFF; /* Remover fundo cinza */
+            box-shadow: none; /* Remover sombra */
         }
         canvas {
             max-width: 100%;
@@ -115,22 +115,11 @@
                 <img class="img-fluid imgLink" src="assets/equipe.png" alt="Equipe">
             </div>
         </div>
-        <!--<div class="TitleMilho display-2 mt-5">Clique em uma das imagens para começar!</div>-->
-
     </div>
 
     <hr>
 
     <div class="Slide2">
-        <h1 class="text-center mb-1 TitleMilho display-1">Audio Descrição</h1>
-        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3" id="audio-container">
-            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        </div>
-    </div>
-
-    <hr>
-
-    <div class="Slide3">
         <h1 class="text-center mb-1 TitleMilho display-1">Cartilha</h1>
         <div id="pdf-viewer" class="flipbook"></div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
@@ -183,13 +172,16 @@
                         width: flipbookWidth,
                         height: flipbookHeight,
                         autoCenter: true,
-                        display: isMobile ? 'single' : 'double'
+                        display: isMobile ? 'single' : 'double',
+                        acceleration: true,
+                        gradients: true,
+                        duration: 1000 // Duração da animação em milissegundos
                     });
     
                     window.addEventListener('resize', () => {
                         const newIsMobile = window.innerWidth <= 768;
-                        const newFlipbookWidth = newIsMobile ? window.innerWidth : window.innerWidth * 0.95;
-                        const newFlipbookHeight = newIsMobile ? window.innerHeight : window.innerHeight * 0.95;
+                        const newFlipbookWidth = newIsMobile ? window.innerWidth : window.innerWidth * 0.9;
+                        const newFlipbookHeight = newIsMobile ? window.innerHeight : window.innerHeight * 0.9;
     
                         $('.flipbook').turn('size', newFlipbookWidth, newFlipbookHeight);
                         $('.flipbook').turn('display', newIsMobile ? 'single' : 'double');
@@ -199,8 +191,11 @@
                 loadPDF();
             });
         </script>
-        <div class="text-center">
-            <a href="assets/cartilha.pdf" target="_blank" class="display-2" style="font-family: MilhoCozido;">Clique aqui para Baixar a Cartilha</a>
+        <div class="text-center mt-2">
+            <a href="assets/ebook.pdf" download="ebook.pdf" class="display-2" style="font-family: MilhoCozido;">Clique aqui para Baixar a Cartilha</a>
+        </div>
+        <div class="text-center mt-2">
+            <a href="assets/audio.mp3" download="audio.mp3" class="display-2" style="font-family: MilhoCozido;">Clique aqui para Baixar a Audio Descrição</a>
         </div>
     </div>
     
@@ -208,7 +203,7 @@
 
     <hr>
 
-    <div class="Slide4">
+    <div class="Slide3">
         <h1 class="text-center mb-1 TitleMilho display-1">Jornal do Mangue</h1>
         <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3" id="jornal-container">
             
@@ -252,7 +247,7 @@
     <hr>
 
 
-    <div class="Slide5">
+    <div class="Slide4">
         <h1 class="text-center mb-1 TitleMilho display-1">Equipe</h1>
         <div class="container-fluid g-5">
             <div class="row row-cols-1 row-cols-md-2 g-5" id="team-container"></div>
