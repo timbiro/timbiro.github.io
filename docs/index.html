@@ -88,7 +88,7 @@
             margin: 0;
         }
         .flipbook .page {
-            background: #EEEEEE;
+            background: #EEEEEE00;
             box-shadow: none;
         }
         canvas {
@@ -188,8 +188,8 @@
     
                     window.addEventListener('resize', () => {
                         const newIsMobile = window.innerWidth <= 768;
-                        const newFlipbookWidth = newIsMobile ? window.innerWidth : window.innerWidth * 1;
-                        const newFlipbookHeight = newIsMobile ? window.innerHeight : window.innerHeight * 1;
+                        const newFlipbookWidth = newIsMobile ? window.innerWidth : window.innerWidth * 0.95;
+                        const newFlipbookHeight = newIsMobile ? window.innerHeight : window.innerHeight * 0.95;
     
                         $('.flipbook').turn('size', newFlipbookWidth, newFlipbookHeight);
                         $('.flipbook').turn('display', newIsMobile ? 'single' : 'double');
