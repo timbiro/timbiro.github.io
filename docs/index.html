@@ -188,8 +188,8 @@
     
                     window.addEventListener('resize', () => {
                         const newIsMobile = window.innerWidth <= 768;
-                        const newFlipbookWidth = newIsMobile ? window.innerWidth : window.innerWidth * 0.9;
-                        const newFlipbookHeight = newIsMobile ? window.innerHeight : window.innerHeight * 0.9;
+                        const newFlipbookWidth = newIsMobile ? window.innerWidth : window.innerWidth * 1;
+                        const newFlipbookHeight = newIsMobile ? window.innerHeight : window.innerHeight * 1;
     
                         $('.flipbook').turn('size', newFlipbookWidth, newFlipbookHeight);
                         $('.flipbook').turn('display', newIsMobile ? 'single' : 'double');
@@ -199,6 +199,9 @@
                 loadPDF();
             });
         </script>
+        <div class="text-center">
+            <a href="assets/cartilha.pdf" target="_blank" class="display-2" style="font-family: MilhoCozido;">Clique aqui para Baixar a Cartilha</a>
+        </div>
     </div>
     
     
