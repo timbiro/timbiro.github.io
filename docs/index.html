@@ -133,8 +133,7 @@
                 const url = 'assets/cartilha.pdf'; // Caminho para o seu arquivo PDF
                 const pdfViewer = document.getElementById('pdf-viewer');
     
-                const renderPage = (page, canvasContainer) => {
-                    const scale = window.innerWidth <= 768 ? 0.8 : 1.25; // Escala diferente para dispositivos móveis e maiores
+                const renderPage = (page, canvasContainer, scale) => {
                     let viewport = page.getViewport({ scale: scale });
                     let canvas = document.createElement('canvas');
                     let context = canvas.getContext('2d');
@@ -156,29 +155,34 @@
                 const loadPDF = async () => {
                     const pdf = await pdfjsLib.getDocument(url).promise;
                     const totalPageCount = pdf.numPages;
+                    const scale = window.innerWidth <= 768 ? 1.5 : 2; // Escala ajustada para melhor visualização
     
                     for (let pageNum = 1; pageNum <= totalPageCount; pageNum++) {
                         const page = await pdf.getPage(pageNum);
                         const pageContainer = document.createElement('div');
                         pageContainer.className = 'page';
                         pdfViewer.appendChild(pageContainer);
-                        renderPage(page, pageContainer);
+                        renderPage(page, pageContainer, scale);
                     }
     
+                    const isMobile = window.innerWidth <= 768;
                     const flipbookWidth = window.innerWidth * 0.9; // 90% da largura da tela
                     const flipbookHeight = window.innerHeight * 0.8; // 80% da altura da tela
     
                     $('.flipbook').turn({
                         width: flipbookWidth,
                         height: flipbookHeight,
-                        autoCenter: true
+                        autoCenter: true,
+                        display: isMobile ? 'single' : 'double' // Modo de exibição baseado no dispositivo
                     });
     
                     window.addEventListener('resize', () => {
+                        const newIsMobile = window.innerWidth <= 768;
                         const newFlipbookWidth = window.innerWidth * 0.9;
                         const newFlipbookHeight = window.innerHeight * 0.8;
     
                         $('.flipbook').turn('size', newFlipbookWidth, newFlipbookHeight);
+                        $('.flipbook').turn('display', newIsMobile ? 'single' : 'double');
                     });
                 };
     
@@ -186,6 +190,7 @@
             });
         </script>
     </div>
+    
     
 
     <hr>
